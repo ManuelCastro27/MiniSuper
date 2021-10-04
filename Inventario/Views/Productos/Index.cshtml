@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<Inventario.Models.Producto>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listado de Productos";
 }
 
-<h2>Index</h2>
+<h2>Listado de Productos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn btn-primary" href="/Productos/Create"><span class="glyphicon glyphicon-plus"></span></a>
 </p>
-<table class="table">
+<table class="table table-striped table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Cantidad)
@@ -38,12 +38,15 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Imagen)
+            @if (!string.IsNullOrEmpty(item.Imagen))
+            {
+                <img scr="@Url.Content(item.Imagen)" alt="Image" style="width:150px;height:150px;max-width: 100%; height: auto;"/>
+            }
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDProducto }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDProducto }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDProducto })
+            <a class="btn btn-success" href="/Productos/Edit/@item.IDProducto"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-info" href="/Productos/Details/@item.IDProducto"><span class="glyphicon glyphicon-info-sign"></span></a>
+            <a class="btn btn-danger" href="/Productos/Delete/@item.IDProducto"><span class="glyphicon glyphicon-trash"></span></a>
         </td>
     </tr>
 }

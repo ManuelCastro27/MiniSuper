@@ -39,12 +39,15 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Imagen)
+            @if (!string.IsNullOrEmpty(Model.Imagen))
+            {
+                <img scr="@Url.Content(Model.Imagen)" alt="Imagen" style="width:150px;height:150px;max-width: 100%; height: auto;" />
+            }
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDProducto }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-success" href="/Productos/Edit/@Model.IDProducto"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-warning" href="/Productos/Index"><span class="glyphicon glyphicon-th-list"></span></a>
 </p>
