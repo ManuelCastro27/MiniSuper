@@ -18,6 +18,11 @@ namespace Inventario.Models
         [DataType(DataType.MultilineText)]
         public string Descripcion { get; set; }
 
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "Ingrese el {0} de producto")]
+        public decimal Precio { get; set; }
+
         public string Imagen { get; set; }
 
         [Display(Name = "Image")]

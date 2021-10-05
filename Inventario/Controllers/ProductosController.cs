@@ -89,7 +89,8 @@ namespace Inventario.Controllers
                 IDProducto = view.IDProducto,
                 Nombre = view.Nombre,
                 Descripcion = view.Descripcion,
-                Imagen = view.Imagen,
+                Precio = view.Precio,
+                Imagen = view.Imagen
             };
         }
 
@@ -117,7 +118,8 @@ namespace Inventario.Controllers
                 IDProducto = producto.IDProducto,
                 Nombre = producto.Nombre,
                 Descripcion = producto.Descripcion,
-                Imagen = producto.Imagen,
+                Precio = producto.Precio,
+                Imagen = producto.Imagen
             };
         }
 

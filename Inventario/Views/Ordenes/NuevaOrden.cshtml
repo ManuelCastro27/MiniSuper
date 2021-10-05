@@ -1,0 +1,38 @@
+﻿@model Inventario.Models.OrdenView
+
+@{
+    ViewBag.Title = "Compras";
+}
+
+<h2>Nueva Compra</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Orden.ClienteID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Orden.ClienteID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Orden.ClienteID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Orden.ClienteNombre, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Orden.ClienteNombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Orden.ClienteNombre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <a class="btn btn-primary" href="/Ordenes/SelectProducto"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+        </div>
+    </div>
+</div>
+}
